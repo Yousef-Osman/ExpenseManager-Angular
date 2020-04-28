@@ -1,0 +1,9 @@
+<section class="container my-5">
+    <input type="button" class="btn btn-primary" value="Get Data" (click)="getExpenses()">
+    <div *ngFor="let item of expenses" class="pt-5">
+        <div><strong>Id:</strong> {{ item.Id }}</div>
+        <div><strong>Description:</strong> {{ item.Description }}</div>
+        <div><strong>IsExpense:</strong> {{ item.IsExpense }}</div>
+        <div><strong>Value:</strong> {{ item.Value }}</div>
+    </div>
+</section>
