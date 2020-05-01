@@ -17,33 +17,14 @@ export class ExpenseFormComponent {
   constructor(private expensesService:ExpensesService) { }
 
   elementForm = new FormGroup({
-    Description: new FormControl('', Validators.required),
-    IsExpense: new FormControl('', Validators.required),
-    Value: new FormControl('', [Validators.required, Validators.pattern('\\d+\\.?\\d*')])
+    description: new FormControl('', Validators.required),
+    isExpense: new FormControl('', Validators.required),
+    value: new FormControl('', [Validators.required, Validators.pattern('\\d+\\.?\\d*')])
   });
 
   onSubmit(){
-    this.expensesService.addEntry(this.elementForm.value).subscribe(res=>{
+    this.expensesService.addOrUpdateEntry(this.elementForm.value).subscribe(res=>{
       console.log("response is: ", res);
     });
   }
 }
-
-// export class ExpenseFormComponent implements OnInit {
-//   types:ExpenseType[] = [
-//     {value: true, display:'Expense'},
-//     {value: false, display:'Income'}
-//   ];
-
-//   elementForm:FormGroup;
-
-//   constructor(private formBuilder: FormBuilder) { }
-
-//   ngOnInit(): void {
-//     this.elementForm = this.formBuilder.group({
-//       Description: '',
-//       IsExpense: '',
-//       Value: ''
-//     });
-//   }
-// }

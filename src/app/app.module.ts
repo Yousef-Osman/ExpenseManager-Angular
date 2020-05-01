@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { ExpenseFormComponent } from './components/expense-form/expense-form.component';
+import { UpdateEntryComponent } from './components/update-entry/update-entry.component';
 
 import { ExpensesService } from './services/expenses.service';
 
@@ -18,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HeaderComponent,
     ExpensesComponent,
     ExpenseFormComponent,
+    UpdateEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,11 +36,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HttpClientModule,
     BrowserAnimationsModule, MatButtonModule, MatTableModule,
     MatSelectModule, MatCardModule, MatInputModule, MatToolbarModule,
+    MatDialogModule,
     ReactiveFormsModule
   ],
   providers: [
     ExpensesService
   ],
+  entryComponents: [UpdateEntryComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

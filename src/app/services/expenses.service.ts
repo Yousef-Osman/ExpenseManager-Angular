@@ -14,7 +14,7 @@ export class ExpensesService {
     return this.httpclient.get(this.rootUrl);
   }
 
-  addEntry(exp){
+  addOrUpdateEntry(exp){
     return this.httpclient.post(this.rootUrl, exp);
   }
 }

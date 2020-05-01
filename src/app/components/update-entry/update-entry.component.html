@@ -1,0 +1,26 @@
+<section class="ss">
+    <h2 mat-dialog-title>Edit Expense</h2>
+    <mat-dialog-content>
+        <form [formGroup]="form">
+            <mat-form-field>
+                <input matInput placeholder="Description" formControlName="description">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-select placeholder="Expense Type" formControlName="isExpense">
+                    <mat-option *ngFor="let type of types" [value]="type.value">
+                        {{type.display}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Value" formControlName="value">
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button (click)="onClose()">Close</button>
+        <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+    </mat-dialog-actions>
+</section>
