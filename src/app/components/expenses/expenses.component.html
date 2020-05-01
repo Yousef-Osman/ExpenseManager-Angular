@@ -1,9 +1,37 @@
 <section class="container my-5">
-    <input type="button" class="btn btn-primary" value="Get Data" (click)="getExpenses()">
-    <div *ngFor="let item of expenses" class="pt-5">
+    <!-- <button mat-flat-button color="primary" (click)="getExpenses()">Get Data</button> -->
+    <h1>Expenses List</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
+        <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="IsExpense">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.IsExpense? "Expense": "Income"}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Value">
+            <th mat-header-cell *matHeaderCellDef> Value </th>
+            <td mat-cell *matCellDef="let element"> {{element.Value}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</section>
+
+
+<!-- <input type="button" class="btn btn-primary" value="Get Data" (click)="getExpenses()"> -->
+
+<!-- <div *ngFor="let item of expenses" class="pt-5">
         <div><strong>Id:</strong> {{ item.Id }}</div>
         <div><strong>Description:</strong> {{ item.Description }}</div>
         <div><strong>IsExpense:</strong> {{ item.IsExpense }}</div>
         <div><strong>Value:</strong> {{ item.Value }}</div>
-    </div>
-</section>
+</div> -->

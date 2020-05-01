@@ -1,0 +1,22 @@
+<section class="container my-5">
+    <mat-card>
+        <h2>Add a new Expense</h2>
+        <form [formGroup]="elementForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="new-exp-field">
+                <input matInput placeholder="Description" formControlName="Description">
+            </mat-form-field>
+            <mat-form-field class="new-exp-field">
+                <mat-select formControlName="IsExpense" placeholder="Expense Type">
+                    <mat-option *ngFor="let type of types" [value]="type.value" >
+                        {{type.display}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="new-exp-field">
+                <input matInput placeholder="Value" formControlName="Value">
+            </mat-form-field>
+        <input type="submit" value="Add new" class="btn btn-success" [disabled]="!elementForm.valid">
+        </form>
+        <!-- <button mat-flat-button color="primary">Add New</button> -->
+    </mat-card>
+</section>
