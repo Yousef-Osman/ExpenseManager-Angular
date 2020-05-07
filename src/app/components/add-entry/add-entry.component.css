@@ -1,0 +1,18 @@
+.card-body{
+    max-width: 500px;
+    padding: 30px 0;
+}
+.form-field{
+    width:80%;
+    margin-left:10%;
+    margin-right: 10%;
+}
+
+.card-head{
+    text-align: center;
+    color: #555;
+}
+
+.card-btn{
+    margin-left:10%;
+}

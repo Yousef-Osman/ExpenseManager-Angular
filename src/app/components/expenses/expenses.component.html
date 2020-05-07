@@ -3,7 +3,7 @@
     <h1>Expenses List</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
         <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <th mat-header-cell *matHeaderCellDef>Id</th>
             <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
         </ng-container>
         <ng-container matColumnDef="Description">
@@ -21,7 +21,8 @@
         <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef>Action</th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="accent" (click)="editEntry(element)">Edit</button>
+                <button mat-raised-button color="accent" (click)="editEntry(element)" class="mr-3">Edit</button>
+                <button mat-raised-button color="warn" (click)="DeleteEntry(element)">Delete</button>
             </td>
         </ng-container>
 

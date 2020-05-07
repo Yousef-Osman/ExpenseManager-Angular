@@ -17,4 +17,8 @@ export class ExpensesService {
   addOrUpdateEntry(exp){
     return this.httpclient.post(this.rootUrl, exp);
   }
+
+  deleteEntry(id){
+    return this.httpclient.delete(this.rootUrl + '/' + id);
+  }
 }

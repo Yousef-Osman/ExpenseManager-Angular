@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
-import { ExpenseFormComponent } from './components/expense-form/expense-form.component';
+import { AddEntryComponent } from './components/add-entry/add-entry.component';
 import { UpdateEntryComponent } from './components/update-entry/update-entry.component';
 
 import { ExpensesService } from './services/expenses.service';
@@ -20,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteEntryComponent } from './components/delete-entry/delete-entry.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -27,8 +29,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppComponent,
     HeaderComponent,
     ExpensesComponent,
-    ExpenseFormComponent,
+    AddEntryComponent,
     UpdateEntryComponent,
+    DeleteEntryComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,10 @@ import {MatDialogModule} from '@angular/material/dialog';
   providers: [
     ExpensesService
   ],
-  entryComponents: [UpdateEntryComponent],
+  entryComponents: [
+    UpdateEntryComponent,
+    DeleteEntryComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

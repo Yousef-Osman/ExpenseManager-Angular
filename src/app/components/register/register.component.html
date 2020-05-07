@@ -1,0 +1,22 @@
+<section class="d-flex my-5 justify-content-center">
+    <mat-card class="card-body mt-5">
+        <h2 class="card-head">Register</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Username" formControlName="userName">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Password" formControlName="password">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Confirm Password" formControlName="confirmPassword">
+            </mat-form-field>
+            <br>
+            <span *ngIf="registerForm.errors?.passwordMatch" class="form-field" style="color: red;">password and confirm password don't match</span>
+            <br>
+            <button mat-raised-button class="card-btn" color="primary" [disabled]="!registerForm.valid">Submit</button>
+        </form>
+    </mat-card>
+</section>

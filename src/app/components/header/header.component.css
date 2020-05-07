@@ -1,3 +1,9 @@
 .nav-btn{
     text-decoration: none !important;
 }
+
+mat-toolbar{
+    top: 0;
+    left: 0;
+    position: fixed;
+}

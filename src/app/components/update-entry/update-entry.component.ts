@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ExpenseType } from 'src/app/interfaces/expenseType';
 import { ExpensesService } from 'src/app/services/expenses.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-entry',
@@ -19,7 +20,8 @@ export class UpdateEntryComponent implements OnInit {
   constructor(private FormBuilder: FormBuilder, 
               private dialogRef: MatDialogRef<UpdateEntryComponent>,
               @Inject(MAT_DIALOG_DATA) public data,
-              private expensesService:ExpensesService) { }
+              private expensesService:ExpensesService,
+              private router: Router) { }
 
   ngOnInit(): void {
     // this.dialogRef.updateSize('50%');
@@ -39,6 +41,7 @@ export class UpdateEntryComponent implements OnInit {
     this.expensesService.addOrUpdateEntry(this.form.value).subscribe(res=>{
       console.log("response is: ", res);
     });
-    // this.dialogRef.close();
+    // this.router.navigate(['/']);
+    this.dialogRef.close();
   }
 }

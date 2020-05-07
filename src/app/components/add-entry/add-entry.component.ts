@@ -2,19 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ExpenseType } from 'src/app/interfaces/expenseType';
 import { ExpensesService } from 'src/app/services/expenses.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-expense-form',
-  templateUrl: './expense-form.component.html',
-  styleUrls: ['./expense-form.component.css']
+  selector: 'app-add-entry',
+  templateUrl: './add-entry.component.html',
+  styleUrls: ['./add-entry.component.css']
 })
-export class ExpenseFormComponent {
+export class AddEntryComponent {
   types:ExpenseType[] = [
     {value: true, display:'Expense'},
     {value: false, display:'Income'}
   ];
 
-  constructor(private expensesService:ExpensesService) { }
+  constructor(private expensesService:ExpensesService,
+              private router:Router) { }
 
   elementForm = new FormGroup({
     description: new FormControl('', Validators.required),
@@ -26,5 +28,6 @@ export class ExpenseFormComponent {
     this.expensesService.addOrUpdateEntry(this.elementForm.value).subscribe(res=>{
       console.log("response is: ", res);
     });
+    this.router.navigate(['/']);
   }
 }

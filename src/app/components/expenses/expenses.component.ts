@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DataElement } from 'src/app/interfaces/data-element';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateEntryComponent } from '../update-entry/update-entry.component';
+import { DeleteEntryComponent } from '../delete-entry/delete-entry.component';
 
 @Component({
   selector: 'app-expenses',
@@ -24,7 +25,6 @@ export class ExpensesComponent implements OnInit {
   }
 
   editEntry(entry) {
-    console.log(entry);
     this.Dialog.open(UpdateEntryComponent, {
       data: {
         id: entry.Id,
@@ -36,5 +36,10 @@ export class ExpensesComponent implements OnInit {
     });
   }
 
+  DeleteEntry(entry){
+    this.Dialog.open(DeleteEntryComponent, {
+      data:{ id:entry.Id }
+    });
+  }
   getExpenses() { }
 }
