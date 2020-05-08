@@ -28,6 +28,6 @@ export class AddEntryComponent {
     this.expensesService.addOrUpdateEntry(this.elementForm.value).subscribe(res=>{
       console.log("response is: ", res);
     });
-    this.router.navigate(['/']);
+    this.router.navigate(['/entries']);
   }
 }
