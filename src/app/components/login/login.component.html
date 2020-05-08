@@ -1,0 +1,16 @@
+<section class="d-flex my-5 justify-content-center">
+    <mat-card class="card-body mt-5">
+        <h2 class="card-head">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Username" formControlName="userName">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Password" formControlName="password">
+            </mat-form-field>
+            <br>
+            <button mat-raised-button class="card-btn" color="primary" [disabled]="!loginForm.valid">Submit</button>
+        </form>
+    </mat-card>
+</section>

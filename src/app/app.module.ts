@@ -22,6 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DeleteEntryComponent } from './components/delete-entry/delete-entry.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { RegisterComponent } from './components/register/register.component';
     UpdateEntryComponent,
     DeleteEntryComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule
   ],
   providers: [
-    ExpensesService
+    ExpensesService,
+    AuthService
   ],
   entryComponents: [
     UpdateEntryComponent,

@@ -1,10 +1,13 @@
 <mat-toolbar color="primary">
-    <div class="container">
+    <div class="container d-flex">
         <a class="text-light pr-3 nav-btn" routerLink="">ExpManager</a>
-        <button mat-button routerLink="entries">Expenses</button>
-        <button mat-button routerLink="new-entry">Add New</button>
+        <button mat-button routerLink="entries" *ngIf="auth.isAuthenticated">Expenses</button>
+        <button mat-button routerLink="new-entry" *ngIf="auth.isAuthenticated">Add New</button>
         <span style="flex: 1 1 auto;"></span>
-        <button mat-button routerLink="register">Register</button>
+        <button mat-button routerLink="login" *ngIf="!auth.isAuthenticated">Login</button>
+        <button mat-button routerLink="register" *ngIf="!auth.isAuthenticated">Register</button>
+        <button mat-button *ngIf="auth.isAuthenticated">Welcome {{auth.getUserName}}</button>
+        <button mat-button routerLink="" *ngIf="auth.isAuthenticated" (click)="auth.logout()">Logout</button>
     </div>
 </mat-toolbar>
 

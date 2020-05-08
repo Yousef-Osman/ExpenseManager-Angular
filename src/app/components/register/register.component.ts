@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService) {
     this.registerForm = formBuilder.group({
       userName: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
@@ -20,8 +22,13 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    console.log("working");
+    delete this.registerForm.value.confirmPassword;
     
+    this.authService.register(this.registerForm.value).subscribe((data:any)=>{
+      console.log(data);
+      localStorage.setItem('userName', data.UserName);
+      localStorage.setItem('token_value', data.Token);
+    });
   }
 }
 
