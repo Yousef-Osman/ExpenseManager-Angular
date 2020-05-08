@@ -24,6 +24,7 @@ import { DeleteEntryComponent } from './components/delete-entry/delete-entry.com
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { LoginComponent } from './components/login/login.component';
     DeleteEntryComponent,
     RegisterComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

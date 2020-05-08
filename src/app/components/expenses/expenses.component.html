@@ -1,6 +1,5 @@
-<section class="container my-5">
-    <!-- <button mat-flat-button color="primary" (click)="getExpenses()">Get Data</button> -->
-    <h1>Expenses List</h1>
+<section class="container top-margin">
+    <h1 class="title">Expenses List</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
         <ng-container matColumnDef="Id">
             <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -30,15 +29,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-
+    <div class="d-flex justify-content-end">
+        <button mat-raised-button color="primary" (click)="addExpense()" class="my-5 align-self-end">Add Expense</button>
+    </div>
 </section>
-
-
-<!-- <input type="button" class="btn btn-primary" value="Get Data" (click)="getExpenses()"> -->
-
-<!-- <div *ngFor="let item of expenses" class="pt-5">
-        <div><strong>Id:</strong> {{ item.Id }}</div>
-        <div><strong>Description:</strong> {{ item.Description }}</div>
-        <div><strong>IsExpense:</strong> {{ item.IsExpense }}</div>
-        <div><strong>Value:</strong> {{ item.Value }}</div>
-</div> -->

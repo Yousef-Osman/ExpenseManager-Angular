@@ -25,7 +25,6 @@ export class RegisterComponent {
     delete this.registerForm.value.confirmPassword;
     
     this.authService.register(this.registerForm.value).subscribe((data:any)=>{
-      console.log(data);
       localStorage.setItem('userName', data.UserName);
       localStorage.setItem('token_value', data.Token);
     });

@@ -1,11 +1,11 @@
 table{
     width:100%;
 }
- 
+
 .mat-column-Description{
     width: 25%;
 }
-  
+
 .mat-column-Type,.mat-column-Value, .mat-column-Action{
   width: 20%;
 }
@@ -23,4 +23,13 @@ table{
 
 .mat-cell{
     padding: 10px 0;
+}
+
+.top-margin{
+    margin-top: 100px;
+}
+
+.title{
+    font-size: 26px;
+    font-weight: 500;
 }

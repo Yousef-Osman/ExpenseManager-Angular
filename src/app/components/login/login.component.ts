@@ -22,7 +22,6 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe((data:any)=>{
-      console.log(data);
       localStorage.setItem('userName', data.UserName);
       localStorage.setItem('token_value', data.Token);
       this.router.navigate(['/entries']);

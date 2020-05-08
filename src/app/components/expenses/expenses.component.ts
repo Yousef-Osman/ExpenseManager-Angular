@@ -5,6 +5,7 @@ import { DataElement } from 'src/app/interfaces/data-element';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateEntryComponent } from '../update-entry/update-entry.component';
 import { DeleteEntryComponent } from '../delete-entry/delete-entry.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-expenses',
@@ -15,7 +16,9 @@ export class ExpensesComponent implements OnInit {
   // expenses:any;
   dataSource: any;
   displayedColumns: string[] = ["Id", "Description", "IsExpense", "Value", "Action"];
-  constructor(private expensesService: ExpensesService, private Dialog: MatDialog) { }
+  constructor(private expensesService: ExpensesService, 
+              private Dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.expensesService.getData().subscribe(response => {
@@ -41,5 +44,7 @@ export class ExpensesComponent implements OnInit {
       data:{ id:entry.Id }
     });
   }
-  getExpenses() { }
+  addExpense() { 
+    this.router.navigate(['/new-entry']);
+  }
 }
